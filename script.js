@@ -91,6 +91,7 @@ function playGame(){
 //Jämför valen
 //annonsera vinnaren
 //spelet pågår 5 rundor
+//testar att uppdatera git
 
 playGame();
 
