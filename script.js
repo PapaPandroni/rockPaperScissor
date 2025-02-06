@@ -7,11 +7,11 @@
 function computerChoice(){
     let randomNumber = Math.random();
     if (randomNumber < 0.33){
-        return 1;
+        return ROCK;
     } else if (randomNumber < 0.66){
-        return 2;
+        return PAPER;
     } else {
-        return 3; // konvertera valet till integers som representerar valen
+        return SCISSOR; // konvertera valet till integers som representerar valen
     }  
 }
 
@@ -19,11 +19,11 @@ function getHumanChoice (){
     let choice = prompt("Rock, paper or scissor?", "Choose wisely");
     switch (choice.toLowerCase()){
         case "rock":
-            return 1;
+            return ROCK;
         case "paper":
-            return 2;
+            return PAPER;
         case "scissor":
-            return 3;
+            return SCISSOR;
         default:
             alert("Not a valid choice. Write only rock, paper or scissor. Reload and try again")
     }
@@ -35,22 +35,22 @@ function playRound ( humanChoice, computerChoice){
         alert("It's a draw! Both gets points");
         humanScore += 1;
         copmuterScore += 1;
-    } else if (humanChoice === 3 && computerChoice === 2) {
+    } else if (humanChoice === SCISSOR && computerChoice === PAPER) {
         alert("Scissor beats paper. You get a point!");
         humanScore += 1;
-    } else if (humanChoice === 2 && computerChoice === 1){
+    } else if (humanChoice === PAPER && computerChoice === ROCK){
         alert("Paper beats Rock. You get a point!");
         humanScore += 1;
-    } else if (humanChoice === 1 && computerChoice === 3) {
+    } else if (humanChoice === ROCK && computerChoice === SCISSOR) {
         alert("Rock beats scissor. You get a point!")
         humanScore += 1;
-    } else if (computerChoice === 3 && humanChoice === 2){
+    } else if (computerChoice === SCISSOR && humanChoice === PAPER){
         alert("Scissor beats paper. I get a point");
         copmuterScore += 1;
-    } else if (computerChoice === 2 && humanChoice === 1){
+    } else if (computerChoice === PAPER && humanChoice === ROCK){
         alert("Paper beats rock. I get a point");
         copmuterScore += 1;
-    } else if (computerChoice === 1 && humanChoice === 3){
+    } else if (computerChoice === ROCK && humanChoice === SCISSOR){
         alert("Rock beats scissor. I get a point");
         copmuterScore += 1;
     }
@@ -59,9 +59,9 @@ function playRound ( humanChoice, computerChoice){
 let humanScore = 0;
 let copmuterScore = 0;
 
-const rock = 1;
-const paper = 2;
-const scissor = 3;
+const ROCK = 1;
+const PAPER = 2;
+const SCISSOR = 3;
 const rounds = 5;
 
 function playGame(){
