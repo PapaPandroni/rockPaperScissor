@@ -34,6 +34,16 @@ p {
     
 }
 
+.result-container {
+    display: flex;
+    justify-content: center;
+}
+span {
+    padding: 25px;
+    font-size: 22px;
+    font-weight: 800;
+}
+
 button {
     flex-grow: 1;
     flex-basis: 40px;

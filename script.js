@@ -3,7 +3,9 @@
 const ROCK = 1;
 const PAPER = 2;
 const SCISSOR = 3;
-const rounds = 5;
+
+let humanScore = 0;
+let computerScore = 0;
 
 //Datorn väljer Rock paper or scissor
     //Math.random() <33 = Rock >=33 <66 = paper >=66 scissor
@@ -28,39 +30,42 @@ function getHumanChoice (event){
         case "scissor":
             return SCISSOR;
         default:
-            alert("something went wrong with the choice")
-    }
-    
+            
+    } 
 }
+
+//REMOVE ALERTS
+//ADD SCORE
 
 function playRound ( humanChoice, computerChoice){
+    const humanScoreSpan = document.querySelector(".humanScoreSpan");
+    const computerScoreSpan = document.querySelector(".computerScoreSpan");
+
     if (humanChoice === computerChoice){
-        alert("It's a draw! Both gets points");
-        humanScore += 1;
-        copmuterScore += 1;
+        alert("It's a draw! Both gets points"); 
+        humanScoreSpan.textContent = `Your score: ${humanScore += 1}`;
+        computerScoreSpan.textContent = `Computer score: ${computerScore += 1}`;
     } else if (humanChoice === SCISSOR && computerChoice === PAPER) {
         alert("Scissor beats paper. You get a point!");
-        humanScore += 1;
+        humanScoreSpan.textContent = `Your score: ${humanScore += 1}`;
     } else if (humanChoice === PAPER && computerChoice === ROCK){
         alert("Paper beats Rock. You get a point!");
-        humanScore += 1;
+        humanScoreSpan.textContent = `Your score: ${humanScore += 1}`;
     } else if (humanChoice === ROCK && computerChoice === SCISSOR) {
         alert("Rock beats scissor. You get a point!")
-        humanScore += 1;
+        humanScoreSpan.textContent = `Your score: ${humanScore += 1}`;
     } else if (computerChoice === SCISSOR && humanChoice === PAPER){
         alert("Scissor beats paper. I get a point");
-        copmuterScore += 1;
+        computerScoreSpan.textContent = `Computer score: ${computerScore += 1}`
     } else if (computerChoice === PAPER && humanChoice === ROCK){
         alert("Paper beats rock. I get a point");
-        copmuterScore += 1;
+        computerScoreSpan.textContent = `Computer score: ${computerScore += 1}`
     } else if (computerChoice === ROCK && humanChoice === SCISSOR){
         alert("Rock beats scissor. I get a point");
-        copmuterScore += 1;
+        computerScoreSpan.textContent = `Computer score: ${computerScore += 1}`
     }
-}
 
-let humanScore = 0;
-let copmuterScore = 0;
+}
 
 function playGame(event){
     let human = undefined;
@@ -70,17 +75,9 @@ function playGame(event){
     playRound(human, computer);
     }
 
-//Låt spelaren välja
-    //validera input
-//Printa de olika valen
-//Jämför valen
-//annonsera vinnaren
-//spelet pågår 5 rundor
-//testar att uppdatera git
-
 const buttons = document.querySelectorAll("button");
 
-buttons.forEach(btn => {
+buttons.forEach((btn) => {
     btn.addEventListener("mouseenter", ()=> {
     btn.style.backgroundColor = "grey"
     })
@@ -89,7 +86,7 @@ buttons.forEach(btn => {
     })
 })
 
-buttons.forEach(btn => {
+buttons.forEach((btn) => {
     btn.addEventListener("click", playGame)
 })
 
