@@ -34,9 +34,6 @@ function getHumanChoice (event){
     } 
 }
 
-//REMOVE ALERTS
-//ADD SCORE
-
 function playRound ( humanChoice, computerChoice){
     const humanScoreSpan = document.querySelector(".humanScoreSpan");
     const computerScoreSpan = document.querySelector(".computerScoreSpan");
@@ -73,7 +70,12 @@ function playGame(event){
     computer = computerChoice();
     human = getHumanChoice(event);
     playRound(human, computer);
-    }
+    if (humanScore === 5 || computerScore === 5){
+        setTimeout( () => {
+            alert(`Final score: ${humanScore} - ${computerScore} Reload the page to play again!`)
+        }, 100);
+    };
+}
 
 const buttons = document.querySelectorAll("button");
 
